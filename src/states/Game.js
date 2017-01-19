@@ -1,13 +1,14 @@
 /* globals __DEV__ */
-import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
+import Phaser from 'phaser';
+// import Mushroom from '../sprites/Mushroom'
+import DevLeagueLogo from '../sprites/DevLeagueLogo';
 
 export default class extends Phaser.State {
   init () {}
   preload () {}
 
   create () {
-    const bannerText = 'Phaser + ES6 + Webpack'
+    const bannerText = 'DevLeague Phaser + Webpack Starter Kit'
     let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText)
     banner.font = 'Bangers'
     banner.padding.set(10, 16)
@@ -16,19 +17,19 @@ export default class extends Phaser.State {
     banner.smoothed = false
     banner.anchor.setTo(0.5)
 
-    this.mushroom = new Mushroom({
+    this.devLeagueLogo = new DevLeagueLogo({
       game: this,
       x: this.world.centerX,
       y: this.world.centerY,
-      asset: 'mushroom'
+      asset: 'devLeagueLogo'
     })
 
-    this.game.add.existing(this.mushroom)
+    this.game.add.existing(this.devLeagueLogo)
   }
 
   render () {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.spriteInfo(this.devLeagueLogo, 32, 32)
     }
   }
 }
